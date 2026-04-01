@@ -1,0 +1,17 @@
+# 1. This must be at the VERY TOP of the file
+cargo-features = ["panic-immediate-abort"]
+
+[package]
+name = "tiny_rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+libc = "0.2"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "immediate-abort" # Now allowed because of the line at the top
+strip = true

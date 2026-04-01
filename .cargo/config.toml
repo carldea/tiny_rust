@@ -1,0 +1,8 @@
+[build]
+target = "aarch64-apple-darwin"
+rustflags = ["-Zunstable-options", "-C", "link-arg=-lSystem"]
+
+[unstable]
+build-std = ["core", "compiler_builtins"]
+panic-immediate-abort = true # Explicitly enable the unstable logic
+
